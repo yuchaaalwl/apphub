@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Claud部屋 ランチャー</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ランチャー">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0f1117;
+    --panel: #171a21;
+    --border: #262b36;
+    --text: #e7e9ea;
+    --muted: #8b93a1;
+    --accent: #1d9bf0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 48px 20px;
+  }
+  h1 { font-size: 18px; font-weight: 600; color: var(--muted); margin: 0 0 28px; }
+  .tiles {
+    width: 100%; max-width: 420px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  a.tile {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 16px; padding: 18px 20px;
+    text-decoration: none; color: var(--text);
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  a.tile:active { transform: scale(0.98); }
+  a.tile:hover { border-color: var(--accent); }
+  .icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+    background: rgba(29, 155, 240, 0.15);
+  }
+  .label { display: flex; flex-direction: column; gap: 2px; }
+  .label strong { font-size: 15px; }
+  .label span { font-size: 12px; color: var(--muted); }
+  .note {
+    margin-top: 32px; font-size: 11px; color: var(--muted); text-align: center;
+    max-width: 380px; line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+  <h1>Claud部屋</h1>
+  <div class="tiles">
+    <a class="tile" href="https://refs-collection.onrender.com">
+      <div class="icon">🖼️</div>
+      <div class="label">
+        <strong>参考資料コレクション</strong>
+        <span>X / YouTube 資料のサムネ管理</span>
+      </div>
+    </a>
+    <a class="tile" href="https://knowledge-app-oyeq.onrender.com">
+      <div class="icon">📚</div>
+      <div class="label">
+        <strong>knowledge</strong>
+        <span>クリエイティブソフトのTips・記事管理</span>
+      </div>
+    </a>
+  </div>
+  <p class="note">
+    無料ホスティングのため、しばらく使っていないと初回アクセス時に
+    数十秒ほど起動待ちが発生することがあります。
+  </p>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
+</body>
+</html>
