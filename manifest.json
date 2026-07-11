@@ -1,5 +1,5 @@
 {
-  "name": "Claud部屋 ランチャー",
+  "name": "Claude部屋 ランチャー",
   "short_name": "ランチャー",
   "start_url": "./index.html",
   "scope": "./",
